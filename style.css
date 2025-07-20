@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe6e6, #fff2e6, #e6f7ff);
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #ffb6b9;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-center {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-center li {
+  position: relative;
+}
+
+.nav-center > li > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dropdown {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #ffa07a;
+  padding: 10px 0;
+  list-style: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  min-width: 150px;
+  z-index: 999;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown li {
+  padding: 10px 20px;
+}
+
+.dropdown li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.login-button {
+  background: white;
+  color: #ff6b6b;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #ffe6e6;
+}
+
+.cta-link {
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  background: #ff6b6b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.cta-link:hover {
+  background: #e04b4b;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #ffe6e6;
+  color: #666;
+}
