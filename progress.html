@@ -2,13 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progress | DebateVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress Tracker</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/script.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background-color: #fffaf0;
+      color: #333;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #ff7f50;
+    }
+
+    .bar-container {
+      margin: 30px 0;
+    }
+
+    .bar-label {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 20px;
+      background-color: peachpuff;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background-color: darkorange;
+      width: 0%;
+      transition: width 0.6s ease-in-out;
+    }
+
+    p {
+      margin-top: 10px;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <h1>Progress</h1>
-  <p>This page is under construction.</p>
+  <header>
+    <h1>Your Debate Progress</h1>
+    <p>Track how far you've come!</p>
+  </header>
+
+  <main>
+    <section class="bar-container">
+      <div class="bar-label">Vocabulary</div>
+      <div class="bar"><div id="vocabBar" class="bar-fill"></div></div>
+    </section>
+
+    <section class="bar-container">
+      <div class="bar-label">Understanding Format</div>
+      <div class="bar"><div id="formatBar" class="bar-fill"></div></div>
+    </section>
+
+    <section class="bar-container">
+      <div class="bar-label">Speaking</div>
+      <div class="bar"><div id="speakingBar" class="bar-fill"></div></div>
+    </section>
+
+    <section class="bar-container">
+      <div class="bar-label">Star Points Earned</div>
+      <div class="bar"><div id="pointsBar" class="bar-fill"></div></div>
+      <p><strong>Total:</strong> <span id="pointsValue">0</span>/70 Star Points</p>
+    </section>
+  </main>
+
+  <script>
+    const safeGet = (key) => {
+      const val = parseFloat(localStorage.getItem(key));
+      return isNaN(val) ? 0 : val;
+    };
+
+    const avg = (arr) => {
+      const valid = arr.filter(v => !isNaN(v));
+      return valid.length ? valid.reduce((a, b) => a + b, 0) / valid.length : 0;
+    };
+
+    const setBar = (id, percent) => {
+      const bar = document.getElementById(id);
+      bar.style.width = percent + "%";
+    };
+
+    const vocabAvg = avg([safeGet("module1Score"), safeGet("module2Score")]);
+    const formatAvg = avg([safeGet("module3Score"), safeGet("module4Score"), safeGet("module5Score")]);
+    const speakingAvg = avg([safeGet("module6Score"), safeGet("module7Score")]);
+    const totalPoints = parseInt(localStorage.getItem("starPoints")) || 0;
+
+    setBar("vocabBar", vocabAvg);
+    setBar("formatBar", formatAvg);
+    setBar("speakingBar", speakingAvg);
+    setBar("pointsBar", (totalPoints / 70) * 100);
+    document.getElementById("pointsValue").textContent = totalPoints;
+  </script>
 </body>
 </html>

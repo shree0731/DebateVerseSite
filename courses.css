@@ -1,0 +1,115 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e6724e;
+}
+
+.nav-center {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-center a:hover {
+  color: #e6724e;
+}
+
+.nav-login .login-button {
+  background-color: #e6724e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.nav-login .login-button:hover {
+  background-color: #cf5a35;
+}
+
+/* Courses Section */
+.courses-section {
+  background: linear-gradient(135deg, #ffe5d0, #ffcdb2); /* peach gradient */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.courses-section h2 {
+  font-size: 2.5rem;
+  color: #d9480f;
+  margin-bottom: 3rem;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* .card {
+  flex: 0 0 300px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+  color: #333;
+} */
+ .card a {
+  display: inline-block;
+  background: yellow;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #fff7f1;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+  color: #555;
+}
